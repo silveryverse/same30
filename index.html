@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#101114" />
+    <meta name="description" content="SAME 30 — one daily challenge for everyone." />
+    <title>SAME 30 — today's shared challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="wordmark" href="./" aria-label="SAME 30 home"><span class="mark"></span>SAME <em>30</em></a>
+        <div class="date-chip"><span class="live-dot"></span><span id="dateLabel">TODAY'S CHALLENGE</span></div>
+        <button id="soundButton" class="icon-button" type="button" aria-label="Turn sound on">⌁</button>
+      </header>
+
+      <section class="hero" aria-labelledby="title">
+        <div class="eyebrow">ONE LEVEL · EVERYONE</div>
+        <h1 id="title">Can you last<br /><span>30 seconds?</span></h1>
+        <p class="lede">Collect the light. Avoid the noise.<br />The world is playing this exact level today.</p>
+      </section>
+
+      <section class="game-wrap" aria-label="SAME 30 game">
+        <div class="game-meta">
+          <div><span class="meta-label">SURVIVED</span><strong id="timeReadout">00.0</strong></div>
+          <div class="phase-readout"><span id="phaseName">WARM UP</span><span id="phasePip"></span></div>
+          <div class="align-right"><span class="meta-label">SCORE</span><strong id="scoreReadout">000</strong></div>
+        </div>
+        <div class="canvas-frame" id="canvasFrame">
+          <canvas id="gameCanvas" aria-label="Game arena. Use your pointer, touch, or arrow keys to move."></canvas>
+          <div id="startOverlay" class="overlay">
+            <div class="overlay-kicker">DAILY RUN · <span id="seedLabel">----</span></div>
+            <button id="startButton" class="start-button" type="button">PLAY <span>↗</span></button>
+            <p>Move with your pointer or touch.<br />Collect <b>light</b>. Avoid <b>noise</b>.</p>
+          </div>
+          <div id="endOverlay" class="overlay is-hidden">
+            <div class="overlay-kicker">RUN COMPLETE</div>
+            <div class="final-time" id="finalTime">00.0</div>
+            <p id="rankText">BETTER THAN 0% OF PLAYERS</p>
+            <div class="result-actions">
+              <button id="shareButton" class="share-button" type="button">SHARE RESULT</button>
+              <button id="retryButton" class="retry-button" type="button">TRY AGAIN <span>↗</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="game-footer"><span><i class="key-icon">●</i> POINTER / TOUCH</span><span>BEST <b id="bestReadout">00.0</b></span></div>
+      </section>
+
+      <footer class="footer-note"><span>SAME LEVEL. SAME DAY. BETTER SCORE.</span><span>NO ACCOUNT · NO WAITING</span></footer>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="game.js"></script>
+  </body>
+</html>
