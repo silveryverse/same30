@@ -17,7 +17,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .wordmark { color: var(--ink); text-decoration: none; font-weight: 800; letter-spacing: -.08em; font-size: 18px; }
 .wordmark em { color: var(--lime); font-style: normal; }
 .mark { display: inline-block; width: 9px; height: 9px; margin-right: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 14px var(--lime); }
-.date-chip, .meta-label, .eyebrow, .game-footer, .footer-note, .overlay-kicker, .phase-readout { font: 500 10px/1 DM Mono, monospace; letter-spacing: .11em; }
+.date-chip, .meta-label, .eyebrow, .game-footer, .footer-note, .overlay-kicker, .phase-readout, .credit { font: 500 10px/1 DM Mono, monospace; letter-spacing: .11em; }
 .date-chip { color: var(--muted); display: flex; align-items: center; gap: 8px; }
 .live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--lime); }
 .icon-button { border: 1px solid var(--line); background: transparent; width: 32px; height: 32px; border-radius: 50%; font-size: 20px; line-height: 1; color: var(--muted); }
@@ -28,6 +28,10 @@ h1 span { color: var(--muted); }
 .lede { color: var(--muted); font-size: 15px; line-height: 1.6; margin: 23px 0 0; }
 .game-wrap { border-top: 1px solid var(--line); padding-top: 16px; }
 .game-meta, .game-footer { display: flex; align-items: center; justify-content: space-between; }
+.credit { display: flex; align-items: center; gap: 9px; margin: 0 0 4px; color: var(--muted); }
+.credit a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color .2s ease, border-color .2s ease; }
+.credit a:hover, .credit a:focus-visible { color: var(--lime); border-color: var(--lime); }
+.credit-arrow { color: var(--lime); font-size: 12px; margin-left: 1px; }
 .game-meta { min-height: 48px; }
 .game-meta strong { display: block; font-size: 23px; line-height: 1.1; margin-top: 7px; letter-spacing: -.05em; }
 .meta-label { color: var(--muted); }
