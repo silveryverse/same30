@@ -13,7 +13,9 @@
   const timeReadout = document.querySelector('#timeReadout');
   const scoreReadout = document.querySelector('#scoreReadout');
   const bestReadout = document.querySelector('#bestReadout');
+  const bestScoreReadout = document.querySelector('#bestScoreReadout');
   const finalTime = document.querySelector('#finalTime');
+  const finalScore = document.querySelector('#finalScore');
   const rankText = document.querySelector('#rankText');
   const phaseName = document.querySelector('#phaseName');
   const seedLabel = document.querySelector('#seedLabel');
@@ -30,8 +32,14 @@
   let state = 'ready', elapsed = 0, score = 0, soundOn = false;
   let rng, player, target, hazards, sparks, trail, keys = {};
   let pointer = { x: 0, y: 0, active: false };
-  const savedBest = Number(localStorage.getItem('same30-best') || 0);
-  bestReadout.textContent = savedBest.toFixed(1).padStart(4, '0');
+  let bestTime = Number(localStorage.getItem('same30-best') || 0);
+  let bestScore = Number(localStorage.getItem('same30-best-score') || 0);
+  renderBest();
+
+  function renderBest() {
+    bestReadout.textContent = bestTime.toFixed(1).padStart(4, '0');
+    bestScoreReadout.textContent = String(bestScore).padStart(3, '0');
+  }
 
   function random() { rng = (rng * 1664525 + 1013904223) >>> 0; return rng / 4294967296; }
   function resize() {
@@ -59,9 +67,12 @@
   }
   function begin() { reset(); state = 'running'; startOverlay.classList.add('is-hidden'); endOverlay.classList.add('is-hidden'); last = performance.now(); cancelAnimationFrame(raf); raf = requestAnimationFrame(loop); beep(260, .04); }
   function finish() {
-    state = 'ended'; const best = Math.max(savedBest, elapsed);
-    if (elapsed > savedBest) localStorage.setItem('same30-best', elapsed.toFixed(2));
-    bestReadout.textContent = best.toFixed(1).padStart(4, '0'); finalTime.textContent = elapsed.toFixed(1).padStart(4, '0');
+    state = 'ended';
+    if (elapsed > bestTime) { bestTime = elapsed; localStorage.setItem('same30-best', elapsed.toFixed(2)); }
+    if (score > bestScore) { bestScore = score; localStorage.setItem('same30-best-score', String(score)); }
+    renderBest();
+    finalTime.textContent = elapsed.toFixed(1).padStart(4, '0');
+    finalScore.textContent = String(score).padStart(3, '0');
     const percentile = Math.min(99, Math.max(1, Math.floor((elapsed / TOTAL) ** 1.55 * 100)));
     rankText.textContent = `BETTER THAN ${percentile}% OF PLAYERS`;
     endOverlay.classList.remove('is-hidden'); beep(110, .16); beep(220, .1); draw();
@@ -125,7 +136,7 @@
     return true;
   }
   shareButton.addEventListener('click', async () => {
-    const text = `I survived ${elapsed.toFixed(1)} seconds on SAME 30. Can you beat me? ${location.href}`;
+    const text = `I survived ${elapsed.toFixed(1)} seconds and scored ${score} on SAME 30. Can you beat me? ${location.href}`;
     try {
       if (navigator.share) {
         await navigator.share({ title: 'SAME 30', text, url: location.href });

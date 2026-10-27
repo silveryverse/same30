@@ -48,6 +48,8 @@ canvas { display: block; width: 100%; height: 100%; touch-action: none; }
 .start-button { border: 0; color: #101114; background: var(--lime); padding: 14px 20px 14px 24px; font-size: 12px; font-weight: 800; letter-spacing: .06em; }
 .start-button span, .retry-button span { margin-left: 13px; font-size: 18px; vertical-align: -2px; }
 .final-time { font-size: clamp(48px, 8vw, 82px); font-weight: 800; letter-spacing: -.09em; line-height: .9; }
+.overlay .final-score { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 0; font: 500 10px/1 DM Mono, monospace; letter-spacing: .12em; color: var(--muted); }
+.overlay .final-score b { font: 800 19px/1 Manrope, system-ui, sans-serif; letter-spacing: -.03em; color: var(--lime); }
 .endOverlay p, #rankText { font: 500 10px/1 DM Mono, monospace; letter-spacing: .12em; color: var(--muted); margin-top: 18px; }
 .result-actions { display: flex; gap: 9px; margin-top: 23px; }
 .share-button, .retry-button { border: 1px solid var(--line); padding: 11px 14px; font: 500 10px/1 DM Mono, monospace; letter-spacing: .09em; }
@@ -55,6 +57,9 @@ canvas { display: block; width: 100%; height: 100%; touch-action: none; }
 .retry-button { background: transparent; }
 .game-footer { color: var(--muted); padding-top: 13px; }
 .game-footer b { color: var(--ink); font-weight: 500; }
+.best-stats { display: flex; gap: 18px; }
+.best-stats span { display: inline-flex; align-items: center; gap: 7px; }
+.best-stats b { color: var(--lime); }
 .key-icon { color: var(--lime); font-style: normal; margin-right: 7px; }
 .footer-note { display: flex; justify-content: space-between; color: #66666a; padding-top: 54px; }
 .toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 15px); opacity: 0; pointer-events: none; background: var(--ink); color: #101114; padding: 11px 15px; font: 500 11px DM Mono, monospace; transition: .25s ease; }

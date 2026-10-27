@@ -45,6 +45,7 @@
           <div id="endOverlay" class="overlay is-hidden">
             <div class="overlay-kicker">RUN COMPLETE</div>
             <div class="final-time" id="finalTime">00.0</div>
+            <p class="final-score"><span>SCORE</span><b id="finalScore">000</b></p>
             <p id="rankText">BETTER THAN 0% OF PLAYERS</p>
             <div class="result-actions">
               <button id="shareButton" class="share-button" type="button">SHARE RESULT</button>
@@ -52,7 +53,13 @@
             </div>
           </div>
         </div>
-        <div class="game-footer"><span><i class="key-icon">●</i> POINTER / TOUCH</span><span>BEST <b id="bestReadout">00.0</b></span></div>
+        <div class="game-footer">
+          <span><i class="key-icon">●</i> POINTER / TOUCH</span>
+          <div class="best-stats">
+            <span>BEST TIME <b id="bestReadout">00.0</b></span>
+            <span>BEST SCORE <b id="bestScoreReadout">000</b></span>
+          </div>
+        </div>
       </section>
 
       <footer class="footer-note"><span>SAME LEVEL. SAME DAY. BETTER SCORE.</span><span>NO ACCOUNT · NO WAITING</span></footer>
